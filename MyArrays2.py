@@ -1,5 +1,5 @@
 import numpy as np
-
+'''
 grades = np.array([[87, 96, 70], [100, 87, 90],[94, 77, 90],
                    [100, 81, 82]])
 
@@ -9,7 +9,7 @@ grades.sum()
 
 grades.min()
 
-grade.max()
+grades.max()
 
 grades.mean()
 
@@ -17,11 +17,11 @@ grades.std()
 
 grades.var()
 
-'''
+
 Many calculation methods can be performed on specific array dimensions,
 known as the array’s axes. These methods receive an axis keyword argument
 that specifies which dimension to use in the calculation, giving you a
-quick way to perform calculations by row or column in a two-dimensional array.'''
+quick way to perform calculations by row or column in a two-dimensional array.
 
 grades.mean(axis=0)
 
@@ -35,7 +35,7 @@ grades.mean(axis=1)
 
 
 
-'''NumPy offers dozens of standalone universal functions (or ufuncs) that perform various element-wise operations.'''
+NumPy offers dozens of standalone universal functions (or ufuncs) that perform various element-wise operations.
 
 
 #Let’s create an array and calculate the square root of its values, using the sqrt universal function:
@@ -66,11 +66,11 @@ numbers4 = np.array([2, 4, 6])
 
 np.multiply(numbers3, numbers4)
 
-''' This works because numbers4 has the same length as each row of numbers3, so NumPy can apply the multiply operation by
+ This works because numbers4 has the same length as each row of numbers3, so NumPy can apply the multiply operation by
  treating numbers4 as if it were the following array:
 
 array([[2, 4, 6],
-[2, 4, 6]]    '''
+[2, 4, 6]]    
 
 
 # Indexing and Slicing
@@ -116,24 +116,24 @@ grades[:, 0]
 # You can select consecutive columns using a slice:
 
 grades[:, 1:3]
-'''array([[96, 70],
+array([[96, 70],
        [87, 90],
        [77, 90],
-       [81, 82]])  '''
+       [81, 82]])  
 
 
 # or specific columns using a list of column indices:
 
 grades[:, [0, 2]]
 
-'''array([[ 87,  70],
+array([[ 87,  70],
        [100,  90],
        [ 94,  90],
-       [100,  82]])'''
+       [100,  82]])
 
 
 
-'''
+
 Use NumPy random-number generation to create an array of twelve random grades
 in the range 60 through 100, then reshape the result into a 3-by-4 array.
 Calculate the average of all the grades, the averages of the grades for each test
@@ -158,10 +158,10 @@ Out[5]: array([74.66666667, 70.        , 68.33333333, 77.66666667])
 grades.mean(axis=1)
 Out[6]: array([83.25, 69.75, 65. ])
 
-'''
 
 
-#Shallow copies (view)
+
+#Shallow copies (view), create a view to the original array
 
 #The array method view returns a new array object with a view of the original array
 
@@ -169,18 +169,18 @@ numbers = np.arange(1, 6)
 #array([1, 2, 3, 4, 5])
 
 
-numbers2 = numbers.view()
+numbers2 = numbers.view() #not a copy, just a view
+#but a change to a view will be a change to the original
 #array([1, 2, 3, 4, 5])
 
 
-
+print(numbers2)
 #To prove that numbers2 views the same data as numbers, let’s modify an element in numbers,
 
 numbers[1] *= 10
 
-
+print(numbers)
 print(numbers2)
-
 #array([ 1, 20, 3, 4, 5])
 
 
@@ -188,9 +188,7 @@ print(numbers2)
 numbers2[1] /= 10
 
 print(numbers)
-
 #array([1, 2, 3, 4, 5])
-
 
 
 #Slice Views
@@ -203,24 +201,22 @@ print(numbers2)
 
 #array([1, 2, 3])
 
-
 #to verify it is a view, lets modify an element in the original array and see the view array
 numbers[1] *= 20
 
 
 
-print(numbers2)
+print(numbers2) #changes the second element in numbers 2 as well.
 #array([ 1, 40, 3])
-
 
 
 
 #Deep copies
 #The array method copy returns a new array object with a deep copy of the original array
 
-numbers2 = numbers.copy()
+numbers2 = numbers.copy() #view and copy are differenet
 
-print(numbers2)
+#print(numbers2)
 
 
 # To prove that numbers2 has a separate copy of the data in numbers, let’s modify an element in numbers,
@@ -228,30 +224,25 @@ print(numbers2)
 
 numbers[1] *= 10
 
-print(numbers)
+#print(numbers)
 #array([ 1, 20, 3, 4, 5])
 
 
-print(numbers2)
+#print(numbers2)
 #array([ 1, 2, 3, 4, 5])
 
 
 
+#The array methods reshape and resize both enable you to change an array’s dimensions. Method reshape returns a
+#view (shallow copy) of the original array with the new dimensions. It does not modify the original array:
 
 
-
-'''The array methods reshape and resize both enable you to change an array’s dimensions. Method reshape returns a
-view (shallow copy) of the original array with the new dimensions. It does not modify the original array:'''
+grades = np.array([[87, 96, 70], [100, 87, 90]]) #2 students, 3 tests each
 
 
-grades = np.array([[87, 96, 70], [100, 87, 90]])
-
-
-grades.reshape(1, 6)
-
+print(grades.reshape(1, 6)) #1 row, 6 columns, just creates a view
 
 #array([[ 87, 96, 70, 100, 87, 90]])
-
 
 #Method resize modifies the original array’s shape:
 
@@ -264,13 +255,13 @@ grades.resize(1, 6)
 
 #Method flatten deep copies the original array’s data:
 
-flattened = grades.flatten()
+flattened = grades.flatten() #puts it in one row
 
 
 #alternatively, Method ravel produces a view (shallow copy) of the original array, which shares the grades array’s data:
 
 
-raveled = grades.ravel()
+raveled = grades.ravel() #put it in one row, same as flatten
 
 print(grades)
 
@@ -283,11 +274,11 @@ raveled[0] = 100
 print(grades)
 
 raveled[6] = 99
-#this will give an error. Why?
+#this will give an error. Why? index error
 
 raveled[5] = 99
 
-#since it is a view and they share the same data, we can look at grades to see that the 6th element has been updated.
+#since it is a view (shallow copy) and they share the same data, we can look at grades to see that the 6th element has been updated.
 print(grades)
 
 
@@ -304,9 +295,11 @@ grades
 
 
 #You can combine arrays by adding more columns or more rows—known as horizontal stacking and vertical stacking.
-
-#HSTACK
+'''
+#HSTACK, stacks horizontally
 #Let’s assume grades2 represents three additional exam grades for the two students in the grades array.
+
+grades = np.array([[87, 96, 70], [100, 87, 90]]) 
 grades2 = np.array([[94, 77, 90], [100, 81, 82]])
 
 #We can combine grades and grades2 with NumPy’s hstack
@@ -319,11 +312,11 @@ print(h_grades)
 print(grades)
 
 
-#VSTACK
+#VSTACK, stacks vertically
 
 #let’s assume that grades2 represents two more students’ grades on three exams.
 v_grades = np.vstack((grades, grades2))
-
+print(v_grades)
 
 
 

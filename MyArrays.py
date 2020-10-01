@@ -1,5 +1,5 @@
 import numpy as np
-
+'''
 #Read Evaluate Print Loop - REPL
 
 #integers = np.array([1,2,3])
@@ -15,15 +15,15 @@ import numpy as np
 
 integers = np.array([[1,2,3],[4,5,6]])
 
-#print(integers)
+print(integers, "the actual array")
 
 #print(integers.dtype)   # determine the array's element type
 
 #print(integers.ndim)    # determine the number of dimensions
 
-#print(integers.shape)   # tuple showing the dimensions of the array
+print(integers.shape, "shape of the array (rows, columns)")   # tuple showing the dimensions of the array
 
-#print(integers.size)    # total number of elements
+print(integers.size, "total number of elements")    # total number of elements
 
 #print(integers.itemsize)    #number of bytes required to store each element
 
@@ -37,7 +37,7 @@ for row in integers:
 for i in integers.flat:    # iterates through all values disregarding columns and rows
     print(i)
 
-#print(np.zeros(5))      # create an array of 5 elements of zeors (by default float type)
+print(np.zeros(5))      # create an array of 5 elements of zeors (by default float type)
 
 #print(np.ones(5))       # create an array of 5 elements of 1s (by default float type)
 
@@ -45,12 +45,11 @@ for i in integers.flat:    # iterates through all values disregarding columns an
 
 #print(np.full((3,5),13))    #create an array of 3 row of 5 columns of the number 13
 
-#print(np.arange(5))         # like the range function, using integers
+print(np.arange(5))         # like the range function, using integers
 
-#print(np.arange(5,10))      # includes lower limit but not upper limit
+print(np.arange(5,10))      # includes lower limit but not upper limit
 
-#print(np.arange(10,1,-2))   #step value for descending order
-
+print(np.arange(10,1,-2))   #step value for descending order
 
 #You can produce evenly spaced floating-point ranges with NumPy’s linspace function. 
 # The function’s first two arguments specify the starting and ending values in the range, 
@@ -58,33 +57,36 @@ for i in integers.flat:    # iterates through all values disregarding columns an
 # the number of evenly spaced values to produce—this argument’s default value is 50:
 
 
-#print(np.linspace(0.0, 1.0, num=5))     #evenly spaced float range
+print(np.linspace(0.0, 1.0, num=5))     #evenly spaced float range
 
 
-'''
+
 
 array1 = np.arange(1,21)        # reshape method can change the dimension 
 
-array2 = array1.reshape(4,5)    # has to have the same number of ELEMENTS
+array2 = array1.reshape(4,5)    # has to have the same number of ELEMENTS, 20
 
-#print(array1)
+print(array1)
 
-#print(array2)
+print(array2)
 
 #When displaying large arrays, NumPy drops the mddle rows and columns
 
 array3 = np.arange(1,100001).reshape(4,25000)
 
-#print(array3)
+print(array3)
 
 array4 = np.arange(1,100001).reshape(100,1000)
 
 #print(array4)
 
-
+'''
 numbers = np.arange(1, 6)
 
+print(numbers) #[1 2 3 4 5]
+'''
 numbers * 2
+print(numbers) #unchanged
 #same as 
 2 * numbers
 
@@ -93,10 +95,10 @@ numbers ** 3
 # numbers is unchanged by the arithmetic operators
 print(numbers)
 
-
 #Augmented assignments modify every element in the left operand.
 numbers += 10
 
+print(numbers)
 
 #Broadcasting
 
@@ -107,6 +109,8 @@ numbers += 10
 
 numbers * [2, 2, 2, 2, 2]
 
+print(numbers) #[11 12 13 14 15] doesn't change the value
+'''
 # multiplying integer arrays with floating pt arrays (result is floating pt)
 numbers2 = np.linspace(1.1, 5.5, 5)
 
@@ -121,13 +125,12 @@ numbers * numbers2
 # Boolean values in which each element’s True or False value indicates the comparison result:
 
 
-numbers >= 13
+print(numbers >= 13)
 
-numbers2 < numbers
+numbers2 < numbers #print statement 
 
 numbers == numbers2
 
-'''
 
 
 
