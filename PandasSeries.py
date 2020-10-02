@@ -1,6 +1,9 @@
 import pandas as pd
 
-grades = pd.Series([87,100,94])
+grades = pd.Series([87,100,94]) #a series is a 1-d array
+
+print(grades)
+
 
 #Pandas displays a Series in two-column format with the indices left aligned
 #in the left column and the values right aligned in the right column.
@@ -9,8 +12,9 @@ grades = pd.Series([87,100,94])
 
 
 
-pd.Series(98.6, range(3))
+#myarray = pd.Series(98.6, range(3))
 
+#print(myarray)
 #0    98.6
 #1    98.6
 #2    98.6
@@ -19,22 +23,22 @@ pd.Series(98.6, range(3))
 
 #You can access a Series’s elements by via square brackets containing an index:
 
-grades[0]
+#grades[0] #87
 
-grades.count()
+#grades.count()
 
-grades.mean()
+#grades.mean()
 
-grades.min()
+#grades.min()
 
-grades.max()
+#grades.max()
 
-grades.std()
+#grades.std()
 
 
 # Calling Series method describe produces all these stats and more:
 
-grades.describe()
+#print(grades.describe())
 
 
 
@@ -99,7 +103,7 @@ hardware.str.upper()
     2    WRENCH  '''
 
 
-
+ 
 
 
 
