@@ -2,11 +2,11 @@ import pandas as pd
 
 series1 = pd.Series([7,11,13,17])
 
-#print(series1)
+print(series1)
 
 series2 = pd.Series(100.0, range(5))
 
-#print(series2)
+print(series2)
 
 import numpy as np  
 random = np.random.randint(0,101,20)

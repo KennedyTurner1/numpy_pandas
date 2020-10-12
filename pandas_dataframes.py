@@ -6,19 +6,18 @@ grades_dict = {'Wally': [87,96,70], 'Ava': [100,87,90],
 
 grades = pd.DataFrame(grades_dict)
 
-print(grades)
 
 #print(grades) #columns are keys, tests are the values
 
 grades.index = ['Test1', 'Test2', 'Test3']
 
-#print(grades)
+print(grades)
 
 #print(grades.Sam) #string indexes can have string attributes
 
 #print(grades.loc[['Test1','Test2'],['Ava','Katie']]) #location method, grab all of test one scores
 
-print(grades.iloc[1]) #give the index rather than the name, test 2 
+#print(grades.iloc[1]) #give the index rather than the name, test 2 
 
 #print(grades.iloc[0:2]) #shows all exams
 
@@ -28,7 +27,7 @@ print(grades.iloc[1]) #give the index rather than the name, test 2
 
 #print(grades[(grades>=80) & (grades<90)]) #grades between 80 and 89
 
-#print(grades.at['Test2','Ava']) 
+print(grades.at['Test2','Ava']) 
 
 #grades.at['Test2','Ava'] = 100 #permanent change
 
@@ -64,4 +63,4 @@ print(grades.iloc[1]) #give the index rather than the name, test 2
 
 #print(grades.T.sort_values(by='Test1', ascending=False))
 
-#print(grades.loc['Test1'].sort_values(ascending=False))
+print(grades.loc['Test1'].sort_values(ascending=False))
